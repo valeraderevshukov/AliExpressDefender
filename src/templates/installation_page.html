@@ -1,0 +1,29 @@
+---
+title: Installation page
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+
+	<section class="section is-green">
+		<div class="section__bg" style="background-image: url(./img/slide-bg.png);"></div>
+		<div class="section__in">
+			<a href="#" class="section__logo-wrap">
+				<div class="section__logo-small has-shadow"><img src="./img/logo-small.png" alt="logo-small"></div>
+				<h3 class="title-sm">AliExpress.Защитник</h3>
+			</a>
+			<div class="section__icon"><img class="icon-check" src="./img/icon-check.png" alt="icon-check"></div>
+			<h1 class="title-lg">Расширение установлено</h1>
+			<p>Теперь вы можете проверять продавцов на AliExpress.</p>
+			<div class="section__bottom section__bottom_mod">
+				<a href="#" class="btn">
+					<span class="btn__text">Перейти на AliExpress</span>
+				</a>
+			</div>
+		</div>
+		<footer class="section__footer">
+			<div class="copy">&copy; 2015–2017 AliExpress.Защитник</div>
+		</footer>
+	</section>
+
+{% endblock %}

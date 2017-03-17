@@ -15,6 +15,16 @@ br
 	line-height: 1
 	&.has-shadow
 		text-shadow: 0.5px 0.9px 1px rgba(0, 0, 0, 0.2)
+.title-lg
+	margin-bottom: 7px
+	+f('mpr', 38, 22)
+	&:not(:first-child)
+		margin-top: 30px
+		+rh(700)
+			margin-top: 20px
+		+sm
+			margin-top: 15px
+			font-size: 20px
 .title-md
 	+f('mpb', 28, 22)
 	&:not(:first-child)
@@ -73,12 +83,24 @@ br
 	&__logo-wrap
 		vertical-align: top
 		text-align: center
+		color: inherit 
 		display: inline-block
 	&__logo,
 	&__logo-small
 		position: relative
 		font-size: 0
 		display: inline-block
+		&.has-shadow
+			&:before
+				position: absolute
+				content: ''
+				top: 50%
+				left: 50%
+				width: 195px
+				height: 195px
+				transform: translate(-50%, -50%) 
+				background-image: radial-gradient(circle 80px at center, #fff 0%, transparent 100%)
+				opacity: 0.3
 		img
 			position: relative
 			max-width: 100%
@@ -86,22 +108,12 @@ br
 	&__logo
 		margin-bottom: 15px
 		width: 78px
-		&:before
-			position: absolute
-			content: ''
-			top: 50%
-			left: 50%
-			width: 195px
-			height: 195px
-			transform: translate(-50%, -50%) 
-			background-image: radial-gradient(circle 80px at center, #fff 0%, transparent 100%)
-			opacity: 0.3
 	&__logo-small
 		margin-bottom: 8px
 		width: 48px
 	&__info
 		font-size: 18px
-	&__buttons
+	&__bottom
 		margin: 68px 0 15px
 		+rh(700)
 			margin-top: 38px
@@ -109,6 +121,11 @@ br
 			margin-top: 20px
 		.is-green &
 			margin: 62px 0 12px
+		&_mod
+			.is-green &
+				margin-top: 30px
+				+rh(700)
+					margin-top: 20px
 	&__col
 		float: left
 		width: 50%
@@ -118,6 +135,18 @@ br
 			float: none
 			width: 100%
 			text-align: center
+	&__icon
+		margin-top: 84px
+		font-size: 0
+		img
+			display: block
+		[class^="icon"]
+			vertical-align: top
+			display: inline-block
+		.icon-delete
+			max-height: 58px
+		.icon-check
+			max-height: 63px
 	&__footer
 		position: absolute
 		left: 0
@@ -142,7 +171,7 @@ br
 	background-image: linear-gradient(to top, #00856f 0%, #00ab8f 100%)
 	display: inline-block
 	+sm
-		padding: 15px 25px
+		padding: 15px 10px
 		width: 100%
 	+hover
 		&:before
