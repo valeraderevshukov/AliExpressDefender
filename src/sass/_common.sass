@@ -1,5 +1,327 @@
 body
-  background: #FFF
-  +css-lock(16, 50, 600, 1000)
-  line-height: 1.4
+	background: #FFF
+	+f('mpr', 16, 17)
+	+font-smoothing
+	opacity: 0
+	transition: opacity .3s ease-in
+	&.is-loaded
+		opacity: 1
+br
+	+sm
+		display: none
+.title
+	margin-bottom: 7px
+	+f('mpr', 32)
+	line-height: 1
+	&.has-shadow
+		text-shadow: 0.5px 0.9px 1px rgba(0, 0, 0, 0.2)
+.title-md
+	+f('mpb', 28, 22)
+	&:not(:first-child)
+		margin-top: 46px
+		+rh(700)
+			margin-top: 26px
+		+sm
+			margin-top: 20px
+			font-size: 20px
+	&:not(:last-child)
+		margin-bottom: 10px
+	.slide__col &
+		max-width: 310px
+		+md
+			max-width: 100%
+.title-sm
+	+f('mpr', 20)
+	line-height: 1
 
+.fullpage
+	position: relative
+.section
+	position: relative
+	padding: 60px 0
+	height: 100vh
+	+vertical
+	background-image: linear-gradient(113deg, $white 0%, $gray-bg 100%)
+	+rh(700)
+		padding: 20px 0 60px
+	&.is-green
+		color: $white 
+		background: $green-bg $radialGrad
+	&__bg
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-repeat: repeat 
+	&__in
+		position: relative
+		padding: 0 120px
+		width: 100%
+		max-width: 1100px
+		font-size: 16px
+		vertical-align: middle
+		display: inline-block
+		+clr
+		+sm
+			padding: 0 15px
+	&__wrap
+		margin: 0 auto
+		max-width: 450px
+		+sm
+			max-width: 100%
+	&__logo-wrap
+		vertical-align: top
+		text-align: center
+		display: inline-block
+	&__logo,
+	&__logo-small
+		position: relative
+		font-size: 0
+		display: inline-block
+		img
+			position: relative
+			max-width: 100%
+			display: block
+	&__logo
+		margin-bottom: 15px
+		width: 78px
+		&:before
+			position: absolute
+			content: ''
+			top: 50%
+			left: 50%
+			width: 195px
+			height: 195px
+			transform: translate(-50%, -50%) 
+			background-image: radial-gradient(circle 80px at center, #fff 0%, transparent 100%)
+			opacity: 0.3
+	&__logo-small
+		margin-bottom: 8px
+		width: 48px
+	&__info
+		font-size: 18px
+	&__buttons
+		margin: 68px 0 15px
+		+rh(700)
+			margin-top: 38px
+		+sm
+			margin-top: 20px
+		.is-green &
+			margin: 62px 0 12px
+	&__col
+		float: left
+		width: 50%
+		min-height: 1px
+		text-align: left
+		+md
+			float: none
+			width: 100%
+			text-align: center
+	&__footer
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 0
+		height: 65px
+		font-size: 14px
+		+sm
+			height: 30px
+.copy
+	padding-top: 15px
+	+sm
+		padding-top: 0
+.btn
+	position: relative
+	padding: 15px 48px 
+	color: $white 
+	+f('mpr', 28)
+	border-radius: 13px
+	box-shadow: inset 2px 2px 4px #00d3bc, inset -2px -2px 4px #006248, 2px 3.5px 5px rgba(0, 0, 0, 0.22)
+	background-color: #00ab8f
+	background-image: linear-gradient(to top, #00856f 0%, #00ab8f 100%)
+	display: inline-block
+	+sm
+		padding: 15px 25px
+		width: 100%
+	+hover
+		&:before
+			opacity: 1
+	&:active
+		&:after
+			opacity: 1
+	&:before,
+	&:after
+		position: absolute
+		content: "" 
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		opacity: 0
+		border-radius: 13px
+		transition: opacity .2s ease-in-out
+	&:before
+		box-shadow: inset 2px 2px 4px #c4efe8, inset -2px -2px 4px #08795d
+		background-image: linear-gradient(to top, #1da48d 0%, #14bea2 100%)
+	&:after
+		box-shadow: inset 2px 2px 4px #00705f, inset -1px -1px 1px #00644b
+		background-image: linear-gradient(to top, #008670 0%, #00aa8e 100%)
+	&__icons,
+	&__text
+		position: relative
+		z-index: 2
+		vertical-align: top
+		display: inline-block
+	&__icons
+		margin-right: 25px
+		+sm
+			margin-right: 10px
+		.icon
+			&:not(.icon-chrome)
+				display: none
+			img
+				max-height: 50px
+				display: block
+		.icon-chrome
+			.opera &,
+			// .firefox &,
+			.yaBrowser &
+				display: none
+		.icon-opera
+			.opera &
+				display: block
+		.icon-firefox
+			.firefox &
+				display: block
+		.icon-yaBrowser
+			.yaBrowser &
+				display: block
+	&__text
+		line-height: 50px
+.mouse
+	position: relative
+	display: inline-block
+	width: 16px
+	height: 26px
+	margin: 0 auto
+	border: 2px solid #fff
+	border-radius: 20px
+	background: transparent 
+	&:before
+		position: absolute
+		content: ""
+		top: -20px
+		right: -20px
+		bottom: -20px
+		left: -20px 
+	&__wheel
+		position: absolute
+		top: 3px
+		left: 5px
+		width: 2px
+		height: 2px
+		background-color: #fff
+		border-radius: 50%
+		animation: scrollDown 2.5s infinite
+
+@keyframes scrollDown 
+	0% 
+		transform: translateY(3px)
+		opacity: 0
+	15% 
+		transform: translateY(3px)
+		opacity: 1
+	30% 
+		transform: translateY(3px)
+		opacity: 1
+	45% 
+		transform: translateY(11px)
+		opacity: 1
+	100% 
+		transform: translateY(11px)
+		opacity: 0
+
+.link
+	color: $green-text
+	transition: color .2s ease-in-out
+	vertical-align: top
+	display: inline-block
+	&_big
+		&:not(:first-child)
+			margin-top: 30px
+			+sm
+				margin-top: 20px
+		&:not(:last-child)
+			margin-bottom: 10px
+		+f('mpb', 28, 26)
+		+sm
+			font-size: 20px
+	&.link_dashed
+		margin-bottom: 10px
+		span
+			border-style: dotted 
+			border-bottom-width: 2px
+	&.for-opera
+		.opera &
+			display: none
+	&.for-chrome
+		.chrome &
+			display: none
+	&.for-yaBrowser
+		.yaBrowser &
+			display: none
+	&.for-opera
+		.yaBrowser &
+			display: none
+	&.for-yaBrowser + .for-opera
+		display: none
+		.yaBrowser &
+			display: inline-block
+	.is-green &
+		color: $white 
+		span
+			border-color: $white
+	+hover
+		color: $green-text-light
+		span
+			border-color: transparent 
+	span
+		border-bottom: 1px solid $green-text
+		transition: border-color .2s ease-in-out
+
+.images
+	position: relative
+	float: right
+	padding-right: 72px
+	max-height: 100%
+	width: 100vw
+	+clr
+	+md
+		display: none
+	&__item
+		float: right
+		margin-top: -13px
+		max-height: 100%
+		transform: translate3d(0, 0, 0)
+		transition: opacity .6s ease-in-out, transform .6s  ease-in-out
+		&:first-child
+			.is-animate &
+				opacity: 0 
+				transform: translateX(-100%)
+		&:last-child
+			position: absolute
+			top: 0
+			right: 72px
+			opacity: 0 
+			transform: scale(.8)
+			.is-animate &
+				opacity: 1
+				transform: scale(1)
+		img
+			max-height: calc(100vh - 120px)
+			display: block
+			+rh(699)
+				max-height: calc(100vh - 80px)
+			@media only screen and (min-height: 700px)
+				max-height: 688px 

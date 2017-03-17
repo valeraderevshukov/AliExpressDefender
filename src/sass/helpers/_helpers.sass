@@ -31,3 +31,36 @@
 =xs
   +r(599)
     @content
+
+// variables
+$white: #fff
+$black: #000
+
+$green-bg: #008a73
+$gray-bg: #e7e7e7
+
+$radialGrad: radial-gradient(circle 862px at center, #00ab8f 0%, #00856f 100%)
+
+$green-text: #0ba78d
+$green-text-light: #25e5c6
+
+
+// fonts
++font("MyriadPro-Regular", MyriadPro-Regular)
++font("MyriadPro-Bold", MyriadPro-Bold)
+
+=f($name, $font-size: null, $line-height: null, $letter-spacing: null)
+  $font-family: null
+  @if $name == "mpr"
+    $font-family: "MyriadPro-Regular"
+  @if $name == "mpb"
+    $font-family: "MyriadPro-Bold"
+  font-family: $font-family, Helvetica Neue, Helvetica, Arial, sans-serif
+  @if $font-family != null
+    font-weight: normal
+  @if $font-size != null
+    font-size: $font-size * 1px
+  @if $line-height != null
+    line-height: $line-height/$font-size
+  @if $letter-spacing != null
+    letter-spacing: ($letter-spacing / 1000) * 1em
