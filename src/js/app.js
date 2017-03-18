@@ -15,6 +15,8 @@ export
 		IMAGES,
 		BTN_CHANGE_IMG,
 
+		ACTIVE,
+
 		touch
 	} = {
 		DOCUMENT: $(document),
@@ -25,6 +27,8 @@ export
 		MOUSE: $('.js-mouse'),
 		IMAGES: $('.js-images'),
 		BTN_CHANGE_IMG: $('.js-change-img'),
+
+		ACTIVE: 'is-active',
 
 		//detect functions
 		touch() {
@@ -81,9 +85,51 @@ $(document).ready( () => {
 		$.fn.fullpage.moveSectionDown();
 	});
 
-	BTN_CHANGE_IMG.click( (e)=> {
-		IMAGES.toggleClass('is-animate');
+	BTN_CHANGE_IMG.click( function(e) {
+		let _this = $(this),
+			dataId = $(this).data('img-id'),
+			img = $('.js-images-item'),
+			actveImg = $('[data-images-item="'+dataId+'"]');
+
+		BTN_CHANGE_IMG.removeClass(ACTIVE);
+		_this.addClass(ACTIVE);
+		
+		img.removeClass(ACTIVE);
+		actveImg.addClass(ACTIVE);
+
 		e.preventDefault();
 	});
+
+	let triggerImg = () => {
+		let imgLast = $('.js-images-item:last'),
+			imgFirst = $('.js-images-item:first'),
+			delay = 5000;
+
+		imgFirst.addClass(ACTIVE);
+
+		let imgActive = $('.js-images-item.is-active'),
+			dataActive = imgActive.data('images-item'),
+			linkActive = $('[data-img-id="'+dataActive+'"]');
+
+		linkActive.addClass(ACTIVE);
+
+		setInterval(function() {
+			let imgActive = $('.js-images-item.is-active');
+			BTN_CHANGE_IMG.removeClass(ACTIVE);
+			if ($('.js-images-item:last').hasClass(ACTIVE)) {
+				imgLast.removeClass(ACTIVE);
+				imgFirst.addClass(ACTIVE);
+			} else {
+				imgActive
+				.removeClass(ACTIVE)
+				.next().addClass(ACTIVE);
+			}
+			imgActive = $('.js-images-item.is-active'),
+			dataActive = imgActive.data('images-item'),
+			linkActive = $('[data-img-id="'+dataActive+'"]');
+			linkActive.addClass(ACTIVE);
+		}, delay);
+	} 
+	triggerImg();
 
 });

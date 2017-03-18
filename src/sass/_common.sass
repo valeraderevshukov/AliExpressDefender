@@ -16,7 +16,7 @@ br
 	&.has-shadow
 		text-shadow: 0.5px 0.9px 1px rgba(0, 0, 0, 0.2)
 .title-lg
-	margin-bottom: 7px
+	margin-bottom: 12px
 	+f('mpr', 38, 22)
 	&:not(:first-child)
 		margin-top: 30px
@@ -124,6 +124,11 @@ br
 		&_mod
 			.is-green &
 				margin-top: 30px
+				+rh(700)
+					margin-top: 20px
+		&_inst
+			.is-green &
+				margin-top: 40px
 				+rh(700)
 					margin-top: 20px
 	&__col
@@ -307,6 +312,17 @@ br
 		display: none
 		.yaBrowser &
 			display: inline-block
+	&[data-img-id]
+		color: $black
+		&.is-active
+			color: $green-text 
+			span
+				border-color: $green-text  
+		span
+			border-color: transparent
+			border-style: dotted 
+			border-bottom-width: 2px
+			 
 	.is-green &
 		color: $white 
 		span
@@ -333,20 +349,15 @@ br
 		margin-top: -13px
 		max-height: 100%
 		transform: translate3d(0, 0, 0)
-		transition: opacity .6s ease-in-out, transform .6s  ease-in-out
-		&:first-child
-			.is-animate &
-				opacity: 0 
-				transform: translateX(-100%)
+		opacity: 0 
+		transform: scale(.8)
+		animation: fadeLeft .6s ease-in-out forwards
+		&.is-active
+			animation: fadeActive .6s ease-in-out forwards
 		&:last-child
 			position: absolute
 			top: 0
 			right: 72px
-			opacity: 0 
-			transform: scale(.8)
-			.is-animate &
-				opacity: 1
-				transform: scale(1)
 		img
 			max-height: calc(100vh - 120px)
 			display: block
@@ -354,3 +365,21 @@ br
 				max-height: calc(100vh - 80px)
 			@media only screen and (min-height: 700px)
 				max-height: 688px 
+@keyframes fadeLeft 
+	0% 
+		transform: translateX(0) scale(1)
+		opacity: 1
+	99% 
+		transform: translateX(-100%) scale(1)
+		opacity: 0
+	100%
+		transform: translateX(0) scale(.8)
+		opacity: 0
+
+@keyframes fadeActive 
+	0% 
+		transform: translateX(0) scale(.8)
+		opacity: 0
+	100% 
+		transform: translateX(0) scale(1)
+		opacity: 1

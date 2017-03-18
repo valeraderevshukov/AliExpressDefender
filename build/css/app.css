@@ -40,7 +40,7 @@ body.is-loaded { opacity: 1; }
 
 .title.has-shadow { text-shadow: 0.5px 0.9px 1px rgba(0, 0, 0, 0.2); }
 
-.title-lg { margin-bottom: 7px; font-family: "MyriadPro-Regular", Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 38px; line-height: 0.57895; }
+.title-lg { margin-bottom: 12px; font-family: "MyriadPro-Regular", Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: normal; font-size: 38px; line-height: 0.57895; }
 
 .title-lg:not(:first-child) { margin-top: 30px; }
 
@@ -89,6 +89,8 @@ body.is-loaded { opacity: 1; }
 .is-green .section__bottom { margin: 62px 0 12px; }
 
 .is-green .section__bottom_mod { margin-top: 30px; }
+
+.is-green .section__bottom_inst { margin-top: 40px; }
 
 .section__col { float: left; width: 50%; min-height: 1px; text-align: left; }
 
@@ -188,6 +190,14 @@ body.is-loaded { opacity: 1; }
 
 .yaBrowser .link.for-yaBrowser + .for-opera { display: inline-block; }
 
+.link[data-img-id] { color: #000; }
+
+.link[data-img-id].is-active { color: #0ba78d; }
+
+.link[data-img-id].is-active span { border-color: #0ba78d; }
+
+.link[data-img-id] span { border-color: transparent; border-style: dotted; border-bottom-width: 2px; }
+
 .is-green .link { color: #fff; }
 
 .is-green .link span { border-color: #fff; }
@@ -202,15 +212,37 @@ body.is-loaded { opacity: 1; }
 
 .images:after { content: " "; display: table; clear: both; }
 
-.images__item { float: right; margin-top: -13px; max-height: 100%; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); transition: opacity .6s ease-in-out, -webkit-transform .6s  ease-in-out; transition: opacity .6s ease-in-out, transform .6s  ease-in-out; transition: opacity .6s ease-in-out, transform .6s  ease-in-out, -webkit-transform .6s  ease-in-out; }
+.images__item { float: right; margin-top: -13px; max-height: 100%; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); opacity: 0; -webkit-transform: scale(0.8); -ms-transform: scale(0.8); transform: scale(0.8); -webkit-animation: fadeLeft .6s ease-in-out forwards; animation: fadeLeft .6s ease-in-out forwards; }
 
-.is-animate .images__item:first-child { opacity: 0; -webkit-transform: translateX(-100%); -ms-transform: translateX(-100%); transform: translateX(-100%); }
+.images__item.is-active { -webkit-animation: fadeActive .6s ease-in-out forwards; animation: fadeActive .6s ease-in-out forwards; }
 
-.images__item:last-child { position: absolute; top: 0; right: 72px; opacity: 0; -webkit-transform: scale(0.8); -ms-transform: scale(0.8); transform: scale(0.8); }
-
-.is-animate .images__item:last-child { opacity: 1; -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); }
+.images__item:last-child { position: absolute; top: 0; right: 72px; }
 
 .images__item img { max-height: calc(100vh - 120px); display: block; }
+
+@-webkit-keyframes fadeLeft { 0% { -webkit-transform: translateX(0) scale(1); transform: translateX(0) scale(1);
+    opacity: 1; }
+  99% { -webkit-transform: translateX(-100%) scale(1); transform: translateX(-100%) scale(1);
+    opacity: 0; }
+  100% { -webkit-transform: translateX(0) scale(0.8); transform: translateX(0) scale(0.8);
+    opacity: 0; } }
+
+@keyframes fadeLeft { 0% { -webkit-transform: translateX(0) scale(1); transform: translateX(0) scale(1);
+    opacity: 1; }
+  99% { -webkit-transform: translateX(-100%) scale(1); transform: translateX(-100%) scale(1);
+    opacity: 0; }
+  100% { -webkit-transform: translateX(0) scale(0.8); transform: translateX(0) scale(0.8);
+    opacity: 0; } }
+
+@-webkit-keyframes fadeActive { 0% { -webkit-transform: translateX(0) scale(0.8); transform: translateX(0) scale(0.8);
+    opacity: 0; }
+  100% { -webkit-transform: translateX(0) scale(1); transform: translateX(0) scale(1);
+    opacity: 1; } }
+
+@keyframes fadeActive { 0% { -webkit-transform: translateX(0) scale(0.8); transform: translateX(0) scale(0.8);
+    opacity: 0; }
+  100% { -webkit-transform: translateX(0) scale(1); transform: translateX(0) scale(1);
+    opacity: 1; } }
 
 .block { display: -webkit-flex; display: -ms-flexbox; display: flex; }
 
@@ -240,7 +272,9 @@ body.is-loaded { opacity: 1; }
 
  .section__bottom { margin-top: 38px; }
 
- .is-green .section__bottom_mod { margin-top: 20px; } }
+ .is-green .section__bottom_mod { margin-top: 20px; }
+
+ .is-green .section__bottom_inst { margin-top: 20px; } }
 
 @media only screen and (max-width: 767px) {
 
