@@ -90,6 +90,8 @@ $(document).ready( () => {
 			dataId = $(this).data('img-id'),
 			img = $('.js-images-item'),
 			actveImg = $('[data-images-item="'+dataId+'"]');
+			
+		if (_this.hasClass(ACTIVE)) return;
 
 		BTN_CHANGE_IMG.removeClass(ACTIVE);
 		_this.addClass(ACTIVE);

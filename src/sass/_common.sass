@@ -312,14 +312,18 @@ br
 		display: none
 		.yaBrowser &
 			display: inline-block
-	&[data-img-id]
-		color: $black
-		&.is-active
-			color: $green-text 
-			span
-				border-color: $green-text  
+	&[data-img-id] 
+		color: $green-text 
 		span
-			border-color: transparent
+			border-color: $green-text  
+		&.is-active
+			color: $black
+			cursor: default
+			+hover
+				color: $black
+			span
+				border-color: transparent
+		span
 			border-style: dotted 
 			border-bottom-width: 2px
 			 

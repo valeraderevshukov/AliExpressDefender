@@ -190,13 +190,17 @@ body.is-loaded { opacity: 1; }
 
 .yaBrowser .link.for-yaBrowser + .for-opera { display: inline-block; }
 
-.link[data-img-id] { color: #000; }
+.link[data-img-id] { color: #0ba78d; }
 
-.link[data-img-id].is-active { color: #0ba78d; }
+.link[data-img-id] span { border-color: #0ba78d; }
 
-.link[data-img-id].is-active span { border-color: #0ba78d; }
+.link[data-img-id].is-active { color: #000; cursor: default; }
 
-.link[data-img-id] span { border-color: transparent; border-style: dotted; border-bottom-width: 2px; }
+.no-touch .link[data-img-id].is-active:hover { color: #000; }
+
+.link[data-img-id].is-active span { border-color: transparent; }
+
+.link[data-img-id] span { border-style: dotted; border-bottom-width: 2px; }
 
 .is-green .link { color: #fff; }
 
