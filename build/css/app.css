@@ -262,7 +262,13 @@ body.is-loaded { opacity: 1; }
 
  .slide__col .title-md { max-width: 100%; }
 
+ .section__logo-wrap { display: block; }
+
  .section__col { float: none; width: 100%; text-align: center; }
+
+ .link[data-img-id] span { border-color: transparent; }
+
+ .link[data-img-id] { color: #000; }
 
  .images { display: none; } }
 

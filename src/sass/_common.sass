@@ -85,6 +85,8 @@ br
 		text-align: center
 		color: inherit 
 		display: inline-block
+		+md
+			display: block
 	&__logo,
 	&__logo-small
 		position: relative
@@ -316,6 +318,10 @@ br
 		color: $green-text 
 		span
 			border-color: $green-text  
+			+md
+				border-color: transparent 
+		+md
+			color: $black 
 		&.is-active
 			color: $black
 			cursor: default
