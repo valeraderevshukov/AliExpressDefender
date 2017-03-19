@@ -72,7 +72,9 @@ function detectBrowser() {
 detectBrowser();
 
 $(document).ready( () => {
-
+	
+	let TIMER;
+	
 	FULLPAGE.fullpage({
 		scrollingSpeed: FULLPAGE_DELAY,
 		sectionSelector: SLIDE,
@@ -90,8 +92,10 @@ $(document).ready( () => {
 			dataId = $(this).data('img-id'),
 			img = $('.js-images-item'),
 			actveImg = $('[data-images-item="'+dataId+'"]');
-			
+
 		if (_this.hasClass(ACTIVE)) return;
+		
+		clearInterval(TIMER);
 
 		BTN_CHANGE_IMG.removeClass(ACTIVE);
 		_this.addClass(ACTIVE);
@@ -115,7 +119,7 @@ $(document).ready( () => {
 
 		linkActive.addClass(ACTIVE);
 
-		setInterval(function() {
+		TIMER = setInterval(function() {
 			let imgActive = $('.js-images-item.is-active');
 			BTN_CHANGE_IMG.removeClass(ACTIVE);
 			if ($('.js-images-item:last').hasClass(ACTIVE)) {
